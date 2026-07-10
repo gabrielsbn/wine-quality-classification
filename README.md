@@ -27,38 +27,7 @@ wine-quality-classification/
 └── README.md           # Descrição do projeto
 ```
 
-## ▶️ Como Reproduzir
-
-### Pré-requisitos
-- Python 3.11+
-- pip
-
-### Instalação
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/seu-usuario/wine-quality-classification.git
-cd wine-quality-classification
-```
-
-2. Crie e ative um ambiente virtual:
-```bash
-# Windows
-python -m venv venv
-venv\Scripts\activate
-```
-
-3. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
-
-4. Abra o notebook principal:
-```bash
-jupyter notebook notebooks/
-```
-
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Bibliotecas Utilizadas
 
 | Biblioteca | Finalidade |
 |---|---|
@@ -92,12 +61,9 @@ classe na EDA e a importância de features extraída do XGBoost.
 
 Gráficos completos disponíveis em [`results/figures/`](./results/figures/).
 
-*A ser preenchido após a conclusão da modelagem.*
-
 ## 📚 Fontes Consultadas — Implicações para Produção
 
-A discussão de implicações para o processo de produção (desenvolvida na apresentação
-executiva) foi fundamentada nas seguintes fontes de domínio enológico:
+A discussão de implicações para o processo de produção foi fundamentada nas seguintes fontes de domínio do vinho:
 
 **Teor alcoólico (`alcohol`):**
 - Evino. *Teor alcoólico no vinho (ABV): como ele define corpo, equilíbrio e sabor.*
@@ -130,4 +96,4 @@ Apresentação executiva do projeto.
 
 ## 👤 Autor
 
-Gabriel Brandão — Pós-Tech em Data Analytics - FIAP
+Gabriel da Silva Brandão Nascimento [RM374018] — Pós-Tech em Data Analytics FIAP 2026.
