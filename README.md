@@ -122,6 +122,12 @@ executiva) foi fundamentada nas seguintes fontes de domínio enológico:
 **Limites legais de SO₂ (referenciado na análise de outliers do notebook):**
 - OIV — International Code of Oenological Practices.
 
+## 🎥 Vídeo Executivo
+
+Apresentação executiva do projeto.
+
+▶️ [Assistir a apresentação](https://www.youtube.com/watch?v=VR6ipK6yYSw)
+
 ## 👤 Autor
 
 Gabriel Brandão — Pós-Tech em Data Analytics - FIAP

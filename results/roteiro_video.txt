@@ -5,7 +5,7 @@ Tempo estimado: ~5 minutos
 
 
 [Slide 1 — Capa] ~15s
-"Bom dia. Vou apresentar os resultados de uma análise que buscou responder
+"Olá. Vou apresentar os resultados de uma análise que buscou responder
 uma pergunta simples: é possível prever, com base em dados químicos de um
 vinho, se ele vai ser avaliado como premium ou não?"
 
@@ -13,84 +13,81 @@ vinho, se ele vai ser avaliado como premium ou não?"
 [Slide 2 — O Problema] ~35s
 "Por que isso importa? Hoje, a decisão sobre o valor de um lote de vinho
 depende quase exclusivamente da avaliação sensorial — um sommelier prova e
-atribui uma nota. Isso cria três problemas práticos: o processo é subjetivo,
-é lento, e não escala. Um modelo preditivo bem calibrado pode ajudar na
+atribui uma nota ao vinho. Isso cria três problemas práticos: o processo é subjetivo 
+e lento. Um modelo preditivo bem calibrado pode ajudar na
 precificação antecipada, na identificação de lotes premium antes da avaliação
 completa, e na padronização de critérios entre diferentes especialistas."
 
 
 [Slide 3 — A Base de Dados] ~25s
-"Trabalhamos com 1.143 amostras de vinho tinto, cada uma com 11 medições
+"Nessa base de dados, trabalhei com 1.143 amostras de vinho, cada uma com 11 variáveis
 físico-químicas de laboratório — acidez, álcool, sulfatos, entre outras. A
 qualidade de cada amostra foi avaliada por sommeliers em escala de 3 a 8.
-Para fins do modelo, simplificamos: nota 7 ou acima é Alta Qualidade, abaixo
-disso é Baixa ou Média."
+Para fins do modelo, simplificamos: nota 7 ou acima pra Alta Qualidade e abaixo
+disso é Baixa ou Média qualidade."
 
 
 [Slide 4 — O Desafio Real] ~40s
 "Antes de chegar aos resultados, é importante entender o principal desafio
-dessa base de dados: apenas 14% dos vinhos são considerados Alta Qualidade.
-Isso cria um problema técnico sério — um modelo mal construído aprende
-simplesmente a dizer 'qualidade baixa' para tudo, e acerta 86% das vezes,
+dessa base de dados: apenas 14% dos vinhos são considerados de Alta Qualidade.
+O problema criado com isso é um modelo mal construído, que aprende
+simplesmente a dizer 'qualidade baixa' para tudo, acertando 86% das vezes,
 sem nunca identificar um único vinho bom. Boa parte do esforço analítico foi
 justamente garantir que o modelo não caísse nessa armadilha."
 
 
 [Slide 5 — O Que Diferencia Vinhos Bons — parte 1] ~35s
 "Olhando os dados, quatro variáveis se destacaram com separação visual clara
-entre os grupos. As duas primeiras: teor alcoólico e acidez volátil. Vinhos
-de Alta Qualidade consistentemente têm teor alcoólico mais alto — a diferença
+entre os grupos. As duas primeiras são: o teor alcoólico e a acidez volátil. Vinhos
+de Alta Qualidade têm teor alcoólico mais alto — a diferença
 de mediana entre os grupos é perceptível. E têm menos acidez volátil — o
-grupo de qualidade inferior concentra os valores mais altos nessa medição."
+grupo de menor qualidade tem os valores mais altos nessa medição."
 
 
 [Slide 6 — O Que Diferencia Vinhos Bons — parte 2] ~30s
 "As outras duas variáveis que também mostraram separação clara foram sulfatos
 e ácido cítrico. Em ambos os casos, os vinhos de Alta Qualidade aparecem com
-concentrações mais elevadas — padrão consistente e reproduzível nos dados."
+concentrações mais altas."
 
 
 [Slide 7 — Correlações entre Variáveis] ~30s
-"Uma observação importante durante a análise: algumas variáveis medem
+"Uma observação importante durante a análise: é que algumas variáveis medem
 fenômenos muito parecidos entre si. Acidez e pH, por exemplo, têm correlação
-de -0.69 — são em grande parte redundantes. Identificar isso foi importante
+de -0.69 — são em grande parte redundantes. Então, Identificar isso foi importante
 para garantir que o modelo não fosse influenciado duas vezes pela mesma
 informação."
 
 
 [Slide 8 — O Modelo Final] ~40s
-"Testamos três abordagens de modelagem, em ordem crescente de sofisticação.
-O XGBoost foi o mais equilibrado dos três — manteve a capacidade de detectar
+"Foi testado três abordagens de modelagem.
+O XGBoost foi o mais equilibrado dos três — onde manteve a capacidade de detectar
 vinhos bons sem aumentar demais os falsos alarmes. O indicador mais importante
-aqui é o ROC-AUC de 0.919: em aproximadamente 92% das vezes que o modelo
+aqui é o ROC-AUC de 0.919: onde aproximadamente 92% das vezes que o modelo
 compara um vinho bom com um vinho ruim, ele os ordena corretamente."
 
 
 [Slide 9 — O Que Mais Importa] ~30s
 "Dentro do modelo, as três variáveis que mais influenciaram as previsões foram
-teor alcoólico, sulfatos e ácido cítrico — nessa ordem. O que chama atenção
+teor alcoólico, sulfatos e ácido cítrico. O que chama atenção
 é que essas mesmas três aparecem no topo sob três métodos diferentes de
 análise: correlação simples, separação visual entre os grupos e importância
-dentro do modelo. Convergência de evidências dá muito mais confiança ao
-achado."
+dentro do modelo."
 
 
 [Slide 10 — Implicações para Produção] ~45s
-"E o que isso significa na prática? Cada uma dessas três variáveis tem uma
-palanca de controle no processo produtivo. O teor alcoólico é determinado
+"Na prática, isso significa que Cada uma dessas três variáveis tem uma
+alavanca de controle no processo produtivo. O teor alcoólico é determinado
 principalmente pelo momento da colheita — uvas colhidas mais maduras geram
 mais açúcar, que se converte em mais álcool na fermentação. Os sulfatos são
-adicionados como conservante durante a vinificação — a dosagem controlada
+adicionados como conservante durante a vinificação onde a dosagem controlada
 protege o vinho da oxidação. E o ácido cítrico, quando usado, reequilibra a
-acidez — embora com restrições regulatórias que variam por região, como na
-União Europeia."
+acidez."
 
 
 [Slide 11 — Conclusão] ~20s
-"Em resumo: identificamos três variáveis físico-químicas com forte associação
-à qualidade percebida, e construímos um modelo com 92% de capacidade de
-distinção. Os próximos passos naturais seriam ampliar a base com mais amostras
-premium e refinar os parâmetros do modelo. Obrigado."
+"Em resumo: foi identificado três variáveis físico-químicas com forte associação
+à qualidade, e construímos um modelo com 92% de capacidade de
+distinção."
 
 
 ================================================
